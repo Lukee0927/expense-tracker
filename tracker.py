@@ -1,4 +1,4 @@
-# Laboratory 3 Installment 3: The Tracker Does Math, Author: Joshua Luke G. Raterta
+# Laboratory 4 Installment 4: The Tracker Makes Decisions, Author: Joshua Luke G. Raterta
 print("=" * 40)
 print("\t   EXPENSE TRACKER")
 print("\tyour money, your rules")
@@ -18,10 +18,29 @@ subtotal = 0
 item1 = input("\nFirst expense?: ")
 amount1 = float(input("Enter the amount: "))
 subtotal += amount1
+if amount1 > 200:
+    print(" Huge expense - are you sure?")
+elif amount1 > 100:
+    print(" Big expense.")
+elif amount1 > 50:
+    print(" Moderate expense.")
+else:
+    print(" Small expense.")
 
 item2 = input("Second expense?: ")
 amount2 = float(input("Enter the amount: "))
 subtotal += amount2
+if amount2 > 200:
+    print(" Huge expense - are you sure?")
+elif amount2 > 100:
+    print(" Big expense.")
+elif amount2 > 50:
+    print(" Moderate expense.")
+else:
+    print(" Small expense.")
+
+if amount1 > 100 and amount2 > 100:
+    print("Two big expenses in a row - slow down!")
 
 average = subtotal / 2
 
@@ -42,8 +61,13 @@ print(f"Subtotal:\t${subtotal}")
 print(f"Average:\t${average}")
 print(f"Tax ({tax_percent}%):\t${tax}")
 print(f"Grand total:\t${total}")
-print(f"Over budget?:\t{over_budget}")
-print(f"Left in budget:\t${left}\n")
+
+if over_budget:
+    print(f"Over budget by ${total - budget}!\n")
+elif total > budget * 0.9:
+    print(f"Careful: only ${left} left.\n")
+else:
+    print(f"Within budget. ${left} left.\n")
 
 print("-" * 40)
-print("Made by: Joshua Luke G. Raterta | Installment 3")
+print("Made by: Joshua Luke G. Raterta | Installment 4")
